@@ -82,72 +82,134 @@ const keys = {
     left: { pressed: false, },
 }
 
-function makeLevelOnePlatforms() {
-    let platforms =
-        [new Platform({ //floor 1
-            position: { x: -50, y: 530 },
-            dims: { w: 550, h: 100 },
-            colour: "brown"
-        }), new Platform({ //floor 2
-            position: { x: 1000, y: 530 },
-            dims: { w: 5000, h: 100 },
-            colour: "brown"
-        }), new Platform({ //left wall
-            position: { x: -100, y: 0 },
-            dims: { w: 50, h: 1200 },
-            colour: "brown"
-        }), new Platform({
-            position: { x: 230, y: 350 },
-            dims: { w: 200, h: 15 },
-            colour: "blue"
-        }), new Platform({
-            position: { x: 600, y: 150 },
-            dims: { w: 150, h: 15 },
-            colour: "green"
-        }), new Platform({
-            position: { x: 1800, y: 300 },
-            dims: { w: 300, h: 15 },
-            colour: "aquamarine"
-        }), new Platform({
-            position: { x: 2200, y: 170 },
-            dims: { w: 200, h: 15 },
-            colour: "turquoise"
+function makePlatforms(num) {
+    if (num == 1) {
+        let platforms =
+            [new Platform({ //floor 1
+                position: { x: -50, y: 530 },
+                dims: { w: 550, h: 100 },
+                colour: "brown"
+            }), new Platform({ //floor 2
+                position: { x: 1000, y: 530 },
+                dims: { w: 5000, h: 100 },
+                colour: "brown"
+            }), new Platform({ //left wall
+                position: { x: -100, y: 0 },
+                dims: { w: 50, h: 1200 },
+                colour: "brown"
+            }), new Platform({
+                position: { x: 230, y: 350 },
+                dims: { w: 200, h: 15 },
+                colour: "blue"
+            }), new Platform({
+                position: { x: 600, y: 150 },
+                dims: { w: 150, h: 15 },
+                colour: "green"
+            }), new Platform({
+                position: { x: 1800, y: 300 },
+                dims: { w: 300, h: 15 },
+                colour: "aquamarine"
+            }), new Platform({
+                position: { x: 2200, y: 170 },
+                dims: { w: 200, h: 15 },
+                colour: "turquoise"
+            })]
+        return platforms;
+    } else if (num == 2) {
+        let platforms =
+            [new Platform({ //floor 1
+                position: { x: -50, y: 530 },
+                dims: { w: 550, h: 100 },
+                colour: "brown"
+            }), new Platform({ //floor 2
+                position: { x: 1000, y: 530 },
+                dims: { w: 5000, h: 100 },
+                colour: "brown"
+            }), new Platform({ //left wall
+                position: { x: -100, y: 0 },
+                dims: { w: 50, h: 1200 },
+                colour: "brown"
+            }), new Platform({
+                position: { x: 230, y: 350 },
+                dims: { w: 200, h: 15 },
+                colour: "blue"
+            }), new Platform({
+                position: { x: 600, y: 150 },
+                dims: { w: 150, h: 15 },
+                colour: "green"
+            }), new Platform({
+                position: { x: 1800, y: 300 },
+                dims: { w: 300, h: 15 },
+                colour: "aquamarine"
+            }), new Platform({
+                position: { x: 2200, y: 170 },
+                dims: { w: 200, h: 15 },
+                colour: "turquoise"
+            })]
+        return platforms;
+    }
+}
+
+function makeEnd(num) {
+    if (num == 1) {
+        let endGoals = [new Platform({
+            position: { x: 2520, y: 90 },
+            dims: { w: 10, h: 10 },
+            colour: "gold"
+        }), new Platform({ //flagpole
+            position: { x: 2520, y: 100 },
+            dims: { w: 10, h: 1000 },
+            colour: "grey"
+        })];
+        return endGoals
+    } else if (num == 2) {
+        let endGoals = [new Platform({
+            position: { x: 2520, y: 90 },
+            dims: { w: 10, h: 10 },
+            colour: "gold"
+        }), new Platform({ //flagpole
+            position: { x: 2520, y: 100 },
+            dims: { w: 10, h: 1000 },
+            colour: "grey"
+        })];
+        return endGoals
+    }
+}
+
+function makeEnemies(level) {
+    if (level == 1) {
+        let enemies = [new Enemy({
+            position: { x: 465, y: 500 },
+            dims: { w: 30, h: 30 },
+            platformIndex: 0
+        }), new Enemy({
+            position: { x: 405, y: 500 },
+            dims: { w: 30, h: 30 },
+            platformIndex: 0
         })]
-    return platforms;
+        return enemies;
+    } else if (level == 2) {
+        let enemies = [new Enemy({
+            position: { x: 230, y: 320 },
+            dims: { w: 30, h: 30 },
+            platformIndex: 3
+        }), new Enemy({
+            position: { x: 1800, y: 270 },
+            dims: { w: 30, h: 30 },
+            platformIndex: 5
+        })]
+        return enemies;
+    }
 }
 
-function makeLevelOneEnd() {
-    let endGoals = [new Platform({
-        position: { x: 2520, y: 90 },
-        dims: { w: 10, h: 10 },
-        colour: "gold"
-    }), new Platform({ //flagpole
-        position: { x: 2520, y: 100 },
-        dims: { w: 10, h: 1000 },
-        colour: "grey"
-    })];
-    return endGoals
-}
-
-function makeLevelOneEnemies() {
-    let enemies = [new Enemy({
-        position: { x: 465, y: 500 },
-        dims: { w: 30, h: 30 },
-        platformIndex: 0
-    }), new Enemy({
-        position: { x: 405, y: 500 },
-        dims: { w: 30, h: 30 },
-        platformIndex: 0
-    })]
-    return enemies;
-}
-
-let platforms = makeLevelOnePlatforms();
-let endGoals = makeLevelOneEnd();
-let enemies = makeLevelOneEnemies();
+let level = 1;
+let platforms = makePlatforms(level);
+let endGoals = makeEnd(level);
+let enemies = makeEnemies(level);
 let end;
 let endGoalScore = 0;
 let killCount = 0;
+let levelFinished = false;
 
 function endScreen() {
     end = requestAnimationFrame(endScreen);
@@ -161,20 +223,26 @@ function endScreen() {
     })
     player1.draw();
     drawWinText();
-    if (player1.position.y + player1.dims.h <= 530) {
+    if (player1.position.y + player1.dims.h < 530) {
         player1.position.y += 2;
-    } else if (player1.position.x < 3000) {
-        player1.position.x += 2;
+    } else if (player1.position.x < endGoals[0].position.x + canvas.width/2 + 100) {
+        player1.position.x += 3;
     } else {
+        if (level < 2) {
+            c.fillText("Press space for level " + (level + 1), 302, 370);
+        } else {
+            c.fillText("You finished the game!", 302, 370);
+        }
         cancelAnimationFrame(end);
+        levelFinished = true;
     }
 }
 
 function drawWinText() {
     c.fillStyle = "lightgrey";
-    c.fillRect(312, 150, 400, 250);
+    c.fillRect(292, 150, 440, 250);
     c.strokeStyle = "grey";
-    c.strokeRect(312, 150, 400, 250);
+    c.strokeRect(292, 150, 440, 250);
     const grad = c.createLinearGradient(312, 250, 712, 250);
     for (let i = 0; i < 7; i++) {
         grad.addColorStop(i / 6, "hsl(" + (360 * i / 6) + ",80%,50%)")
@@ -185,7 +253,7 @@ function drawWinText() {
     let finalScore = endGoalScore + player1.lives * 300 + killCount*100;
     c.fillStyle = "black";
     c.font = "42px Arial";
-    c.fillText("Score: "+finalScore, 362, 350);
+    c.fillText("Score: "+finalScore, 395, 310);
 }
 
 function animate() {
@@ -305,9 +373,9 @@ function death() {
         player1.position = { x: canvas.width * 0.1, y: 450 };
         player1.velocity = { x: 0, y: 0 };
         player1.jumps = 0;
-        platforms = makeLevelOnePlatforms();
-        endGoals = makeLevelOneEnd();
-        enemies = makeLevelOneEnemies();
+        platforms = makePlatforms(level);
+        endGoals = makeEnd(level);
+        enemies = makeEnemies(level);
         animate();
     } else {
         // Draw final frame
@@ -341,9 +409,11 @@ animate();
 addEventListener("keydown", ({ key }) => {
     switch (key) {
         case " ":
-            if (player1.jumps < player1.maxJumps) {
-                player1.velocity.y = -15;
-                player1.jumps++;
+            if (levelFinished) {
+                level++;
+                levelFinished = false;
+                player1.lives = 4;
+                death();
             }
             break;
         case "w":
